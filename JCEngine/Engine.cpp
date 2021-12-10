@@ -26,6 +26,12 @@ bool Engine::Init(int width, int height)
 	}
 }
 
+void Engine::SetRender()
+{
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+	SDL_RenderClear(renderer);
+}
+
 void Engine::Render()
 {
 	SDL_RenderPresent(renderer);

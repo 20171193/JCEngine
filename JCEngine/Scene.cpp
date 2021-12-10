@@ -19,7 +19,10 @@ void Scene::loop()
 	}
 	while (1)
 	{
-
+		for (Object* ob : objects)
+		{
+			ob->Update();
+		}
 	}
 
 }

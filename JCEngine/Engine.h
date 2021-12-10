@@ -14,6 +14,8 @@ class Engine
 public:
 	bool Init(int width, int height);
 
+	void SetRender();
+
 	void Render();
 
 	void Quit();

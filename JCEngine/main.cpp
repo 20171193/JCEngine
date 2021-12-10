@@ -67,21 +67,55 @@
 #include "Scene.h"
 #include "Object.h"
 #include "Component.h"
+#include "CCollision.h"
+#include "CMoveable.h"
 
 void main()
 {
 	GameManager* _game = new GameManager();
-	Scene* level1 = new Scene("Level 1");
 
+	// set level 1
+	// -----------------------
+	Scene* level1 = new Scene("Level 1");
 	_game->CreateScene(level1);
 	
-	Object
+	Object* player = new Object("Player");
+	level1->AddObject(player);
+	Component* move = new CMoveable();
+	player->AddComponent(move);
+
+	Object* weapon = new Object("Sword");
+	level1->AddObject(weapon);
+	Component* collision = new CCollision();
+	weapon->AddComponent(collision);
+	player->AddChild(weapon);
+
+	Object* Enemy = new Object("Enemy");
+	level1->AddObject(Enemy);
+
+	// -----------------------
+	// end level 1
+
+	// set level 2
+	// -----------------------
+	Scene* level2 = new Scene("Level 2");
+	_game->CreateScene(level2);
 
 
+	// -----------------------
+	// end level 2
 
-	_game->RunningGame();
+	_game->OpenScene(level1);
+
 	_game->QuitGame();
 
 	delete _game;
 	delete level1;
+	delete player;
+	delete move;
+	delete collision;
+	delete weapon;
+
+	delete level2;
+
 }
