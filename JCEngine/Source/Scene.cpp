@@ -1,8 +1,7 @@
 #include "Scene.h"
 
-Scene::Scene(string name)
+Scene::Scene()
 {
-	scene_name;
 }
 
 void Scene::AddObject(Object* object)

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ffee6d9e-ea9d-4b94-8c08-4f4e640a01bb}</ProjectGuid>
-    <RootNamespace>JCEngine</RootNamespace>
+    <ProjectGuid>{7cbec02e-5ef0-4247-a71c-79c438bda4d8}</ProjectGuid>
+    <RootNamespace>TestProject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -78,8 +78,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\재천\source\repos\JCEngine\JCEngine\Header;C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -118,14 +116,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>C:\Users\재천\source\repos\JCEngine\JCEngine\Header;C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>JCEngine.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\재천\source\repos\JCEngine\x64\Debug;C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -145,32 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Header\CCollision.h" />
-    <ClInclude Include="Header\CMoveable.h" />
-    <ClInclude Include="Header\Component.h" />
-    <ClInclude Include="Header\CTransform.h" />
-    <ClInclude Include="Header\Engine.h" />
-    <ClInclude Include="Header\Frame.h" />
-    <ClInclude Include="Header\GameManager.h" />
-    <ClInclude Include="Header\Monobehaviour.h" />
-    <ClInclude Include="Header\Object.h" />
-    <ClInclude Include="Header\Scene.h" />
-    <ClInclude Include="Header\TextureManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source\CCollision.cpp" />
-    <ClCompile Include="Source\CMoveable.cpp" />
-    <ClCompile Include="Source\CTransform.cpp" />
-    <ClCompile Include="Source\Engine.cpp" />
-    <ClCompile Include="Source\Frame.cpp" />
-    <ClCompile Include="Source\GameManager.cpp" />
-    <ClCompile Include="main.cpp">
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <ClCompile Include="Source\Monobehaviour.cpp" />
-    <ClCompile Include="Source\Object.cpp" />
-    <ClCompile Include="Source\Scene.cpp" />
-    <ClCompile Include="Source\TextureManager.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

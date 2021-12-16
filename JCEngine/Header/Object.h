@@ -3,36 +3,41 @@
 
 #include "Monobehaviour.h"
 #include "Component.h"
+#include "CCollision.h"
 #include "CTransform.h"
+#include "CMoveable.h"
 
 #include <string>
 #include <algorithm>
 #include <list>
 using namespace std;
 
+
 class Object : public Monobehaviour
 {
 public:
 	virtual void Start();
 	virtual void Update();
-	virtual void FixedUpdate();
 
-	Object(string name);
+	Object();
 
+	void InitObject();
 	void AddChild(Object*);
 	void RemoveChild(Object*);
 	void AddComponent(Component*);
 
-	void SetPosition(float x, float y, float z);
-	void SetScale(float x, float y, float z);
 public:
 	float x_pos, y_pos, z_pos;
 	float x_scale, y_scale, z_scale;
+	
+	bool collider;
 
+	list<Object*> childs;
+
+	CTransform* transform;
 private:
 	string ob_name;
 
-	list<Object*> childs;
 	list<Component*> components;
 };
 

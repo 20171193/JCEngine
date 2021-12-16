@@ -1,9 +1,14 @@
 #include "Object.h"
 
-Object::Object(string name)
+Object::Object() : 
+	collider(false)
 {
-	ob_name = name;
+	InitObject();
+	transform = new CTransform(this);
+}
 
+void Object::InitObject()
+{
 	x_pos = 0;
 	y_pos = 0;
 	z_pos = 0;
@@ -13,9 +18,9 @@ Object::Object(string name)
 	z_scale = 0;
 }
 
-
 void Object::AddChild(Object* child)
 {
+	transform->getChildsInfo(child);
 	childs.push_back(child);
 }
 void Object::RemoveChild(Object* child)
@@ -34,47 +39,18 @@ void Object::AddComponent(Component* component)
 	components.push_back(component);
 }
 
-void Object::SetPosition(float x, float y, float z)
-{
-	x_pos += x;
-	y_pos += y;
-	z_pos += z;
-
-	if (!childs.empty())
-	{
-		for (Object* i : childs)
-		{
-			i->setPosition(x, y, z);
-		}
-	}
-}
-void Object::SetScale(float x, float y, float z)
-{
-	x_scale = x;
-	y_scale = y;
-	z_scale = z;
-
-	//if (!childs.empty())
-	//{
-	//	for (Object* i : childs)
-	//	{
-	//		i->setPosition(x, y, z);
-	//	}
-	//}
-}
-void Object::Awake()
-{
-
-}
 void Object::Start()
 {
-
+	for (Component* src_comp : components)
+	{
+		src_comp->Start();
+	}
 }
 void Object::Update()
 {
-
+	for (Component* src_comp : components)
+	{
+		src_comp->Update();
+	}
 }
-void Object::FixedUpdate()
-{
 
-}

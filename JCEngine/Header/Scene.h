@@ -1,16 +1,17 @@
 #ifndef __SCENE_H__
 #define __SCENE_H__ 
 
-#include "Object.h"
-
 #include <string>
 #include <list>
+
+#include "Object.h"
+
 using namespace std;
 
 class Scene
 {
 public:
-	Scene(string name);
+	Scene();
 	void loop();
 	
 	void AddObject(Object*);

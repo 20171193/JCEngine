@@ -1,16 +1,19 @@
 #ifndef __GAME_MANAGER_H__
 #define __GAME_MANAGER_H__
 
+#include <list>
+#include <iostream>
+
 #include "Scene.h"
 #include "Engine.h"
 
-#include <list>
 using namespace std;
 
 class GameManager
 {
 public:
 	GameManager();
+	GameManager(int win_width, int win_height);
 	
 	void CreateScene(Scene* scene);
 
