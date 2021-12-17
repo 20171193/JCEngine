@@ -79,7 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\Users\재천\source\repos\JCEngine\JCEngine\Header;C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64;C:\Users\재천\source\repos\JCEngine\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

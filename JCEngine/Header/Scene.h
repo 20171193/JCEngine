@@ -4,16 +4,19 @@
 #include <string>
 #include <list>
 
+#include "Monobehaviour.h"
 #include "Object.h"
 
 using namespace std;
 
-class Scene
+class Scene : public Monobehaviour
 {
 public:
 	Scene();
-	void loop();
 	
+	virtual void Start();
+	virtual void Update();
+
 	void AddObject(Object*);
 private:
 	list<Object*> objects;

@@ -43,8 +43,8 @@ int main(int, char **)
 
 	// set level 2
 	// -----------------------
-	Scene* level2 = new Scene();
-	_game->CreateScene(level2);
+	//Scene* level2 = new Scene();
+	//_game->CreateScene(level2);
 
 
 	// -----------------------
@@ -52,16 +52,16 @@ int main(int, char **)
 
 	_game->OpenScene(level1);
 
-	_game->QuitGame();
+	//_game->QuitGame();
 
 	delete _game;
 	delete level1;
 	delete player;
-	//delete p_move;
+	delete p_move;
 	//delete collision;
 	delete weapon;
 
-	delete level2;
+	//delete level2;
 
 	return 0;
 }

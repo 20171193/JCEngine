@@ -3,7 +3,7 @@
 
 void CMoveable::Start()
 {
-
+	move_val = 1;
 }
 void CMoveable::Update()
 {
@@ -31,12 +31,12 @@ void CMoveable::inputMove()
 				if (src_ob->collider == true 
 					&& !src_ob->collisionManager->CheckCollision(src_ob, DIR_LEFT,move_val))
 				{
-					src_ob->transform->setPosition(-move_val, 0);
+					src_ob->transform->setPosition(-move_val, 0, src_ob);
 					break;
 				}
 				else if (src_ob->collider == false)
 				{
-					src_ob->transform->setPosition(-move_val, 0);
+					src_ob->transform->setPosition(-move_val, 0, src_ob);
 					break;
 				}
 				else
@@ -45,12 +45,12 @@ void CMoveable::inputMove()
 				if (src_ob->collider == true 
 					&& !src_ob->collisionManager->CheckCollision(src_ob, DIR_RIGHT, move_val))
 				{
-					src_ob->transform->setPosition(move_val, 0);
+					src_ob->transform->setPosition(move_val, 0, src_ob);
 					break;
 				}
 				else if (src_ob->collider == false)
 				{
-					src_ob->transform->setPosition(move_val, 0);
+					src_ob->transform->setPosition(move_val, 0, src_ob);
 					break;
 				}
 				else
@@ -59,12 +59,12 @@ void CMoveable::inputMove()
 				if (src_ob->collider == true 
 					&& !src_ob->collisionManager->CheckCollision(src_ob, DIR_UP, move_val))
 				{
-					src_ob->transform->setPosition(0, -move_val);
+					src_ob->transform->setPosition(0, -move_val, src_ob);
 					break;
 				}
 				else if (src_ob->collider == false)
 				{
-					src_ob->transform->setPosition(0, -move_val);
+					src_ob->transform->setPosition(0, -move_val, src_ob);
 					break;
 				}
 				else
@@ -73,12 +73,12 @@ void CMoveable::inputMove()
 				if (src_ob->collider == true
 					&& !src_ob->collisionManager->CheckCollision(src_ob, DIR_DOWN, move_val))
 				{
-					src_ob->transform->setPosition(0, move_val);
+					src_ob->transform->setPosition(0, move_val, src_ob);
 					break;
 				}
 				else if (src_ob->collider == false)
 				{
-					src_ob->transform->setPosition(0, move_val);
+					src_ob->transform->setPosition(0, move_val, src_ob);
 					break;
 				}
 				else

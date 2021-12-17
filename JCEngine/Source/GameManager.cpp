@@ -42,12 +42,14 @@ void GameManager::OpenScene(Scene* scene)
 }
 void GameManager::RunningGame()
 {
+	src_scene->Start();
+
 	while (rungame)
 	{
 		engine->SetRender();
 
-		src_scene->loop();
-		
+		src_scene->Update();
+
 		engine->Render();
 	}
 }

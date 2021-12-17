@@ -10,10 +10,10 @@ void CCollision::Update()
 }
 bool CCollision::Enable(Object* object)
 {
-	//src_ob = object;
-	//// 해당 오브젝트의 충돌박스 활성화
-	//src_ob->collider = true;
-	//src_ob->collisionManager->col_ob_list.push_back(src_ob);
+	src_ob = object;
+	// 해당 오브젝트의 충돌박스 활성화
+	src_ob->collider = true;
+	src_ob->collisionManager->col_ob_list.push_back(src_ob);
 
 	return true;
 }

@@ -41,16 +41,23 @@ void Object::AddComponent(Component* component)
 
 void Object::Start()
 {
-	for (Component* src_comp : components)
+	if (!components.empty())
 	{
-		src_comp->Start();
+		for (Component* src_comp : components)
+		{
+			src_comp->Start();
+		}
 	}
 }
 void Object::Update()
 {
-	for (Component* src_comp : components)
+	if (!components.empty())
 	{
-		src_comp->Update();
+		for (Component* src_comp : components)
+		{
+			src_comp->Update();
+		}
+		cout << "(" << x_pos << ", " << y_pos << ")" << endl;
 	}
 }
 

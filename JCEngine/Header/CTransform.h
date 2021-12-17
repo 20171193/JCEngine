@@ -20,7 +20,7 @@ public:
 	virtual void Update();
 	virtual bool Enable(Object* object);
 
-	void setPosition(float x, float y);
+	void setPosition(float x, float y, Object* object);
 
 	void getChildsInfo(Object* src_ob);
 

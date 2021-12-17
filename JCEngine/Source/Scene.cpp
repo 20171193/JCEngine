@@ -9,19 +9,24 @@ void Scene::AddObject(Object* object)
 	objects.push_back(object);
 }
 
-void Scene::loop()
+void Scene::Start()
 {
-	
-	for (Object* ob : objects)
+	if (!objects.empty())
 	{
-		ob->Start();
+		for (Object* ob : objects)
+		{
+			ob->Start();
+		}
 	}
-	while (1)
+}
+void Scene::Update()
+{
+	if (!objects.empty())
 	{
 		for (Object* ob : objects)
 		{
 			ob->Update();
 		}
 	}
-
 }
+
