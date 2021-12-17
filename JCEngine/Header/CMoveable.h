@@ -1,7 +1,6 @@
 #ifndef __C_MOVEABLE_H__
 #define __C_MOVEABLE_H__
 
-#include "Monobehaviour.h"
 #include "Component.h"
 
 #include "SDL.h"
@@ -12,18 +11,17 @@ class Object;
 class CMoveable : public Component
 {
 public:
-	CMoveable(Object* object);
 
 	virtual void Start();
 	virtual void Update();
+	virtual bool Enable(Object* object);
 
 	void inputMove();
 
-	int move_val;
-
-private:
+	float move_val;
 	Object* src_ob;
 
+private:
 	SDL_Event event;
 };
 

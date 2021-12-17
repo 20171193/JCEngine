@@ -3,7 +3,6 @@
 
 #include <list>
 
-#include "Monobehaviour.h"
 #include "Component.h"
 
 class Object;
@@ -19,11 +18,12 @@ public:
 
 	virtual void Start();
 	virtual void Update();
+	virtual bool Enable(Object* object);
 
-	void setPosition(float x, float y, float z);
-	void setScale(float x, float y, float z);
+	void setPosition(float x, float y);
 
 	void getChildsInfo(Object* src_ob);
+
 private:
 	Object* src_object;
 	list<Object*> ob_child_list;

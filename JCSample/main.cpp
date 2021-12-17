@@ -6,6 +6,7 @@
 #include "GameManager.h"
 #include "Scene.h"
 #include "Object.h"
+#include "IComponent.h"
 #include "Component.h"
 #include "CCollision.h"
 #include "CMoveable.h"
@@ -56,8 +57,8 @@ int main(int, char **)
 	delete _game;
 	delete level1;
 	delete player;
-	delete move;
-	delete collision;
+	//delete p_move;
+	//delete collision;
 	delete weapon;
 
 	delete level2;

@@ -1,14 +1,16 @@
 #ifndef __COMPONENT_H__
 #define __COMPONENT_H__
 
-#include "Monobehaviour.h"
+#include "IComponent.h"
 
-class Component : public Monobehaviour
+class Object;
+
+class Component : public IComponent
 {
 public:
-
 	virtual void Start() {}
-	virtual void Update() {}	
+	virtual void Update() {}
+	virtual bool Enable(Object* object) { return false; }
 };
 
 #endif

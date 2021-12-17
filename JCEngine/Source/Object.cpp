@@ -1,27 +1,20 @@
 #include "Object.h"
 
 Object::Object() : 
-	collider(false)
+	collider(false),
+	x_pos(0),
+	y_pos(0)
 {
-	InitObject();
-	transform = new CTransform(this);
-}
-
-void Object::InitObject()
-{
-	x_pos = 0;
-	y_pos = 0;
-	z_pos = 0;
-
-	x_scale = 0;
-	y_scale = 0;
-	z_scale = 0;
+	collisionManager = new CollisionManager();
+	AddComponent(transform = new CTransform());
 }
 
 void Object::AddChild(Object* child)
 {
-	transform->getChildsInfo(child);
 	childs.push_back(child);
+	
+	//Transform 컴포넌트에 추가된 자식의 정보를 업데이트
+	transform->getChildsInfo(child);
 }
 void Object::RemoveChild(Object* child)
 {
@@ -36,7 +29,14 @@ void Object::RemoveChild(Object* child)
 }
 void Object::AddComponent(Component* component)
 {
-	components.push_back(component);
+	if (component->Enable(this))
+	{
+		components.push_back(component);
+	}
+	else
+	{
+		cout << "컴포넌트 추가 실패!" << endl;
+	}
 }
 
 void Object::Start()

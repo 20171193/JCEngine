@@ -147,11 +147,13 @@
   <ItemGroup>
     <ClInclude Include="Header\CCollision.h" />
     <ClInclude Include="Header\CMoveable.h" />
+    <ClInclude Include="Header\CollisionManager.h" />
     <ClInclude Include="Header\Component.h" />
     <ClInclude Include="Header\CTransform.h" />
     <ClInclude Include="Header\Engine.h" />
     <ClInclude Include="Header\Frame.h" />
     <ClInclude Include="Header\GameManager.h" />
+    <ClInclude Include="Header\IComponent.h" />
     <ClInclude Include="Header\Monobehaviour.h" />
     <ClInclude Include="Header\Object.h" />
     <ClInclude Include="Header\Scene.h" />
@@ -160,6 +162,8 @@
   <ItemGroup>
     <ClCompile Include="Source\CCollision.cpp" />
     <ClCompile Include="Source\CMoveable.cpp" />
+    <ClCompile Include="Source\CollisionManager.cpp" />
+    <ClCompile Include="Source\Component.cpp" />
     <ClCompile Include="Source\CTransform.cpp" />
     <ClCompile Include="Source\Engine.cpp" />
     <ClCompile Include="Source\Frame.cpp" />
@@ -167,7 +171,6 @@
     <ClCompile Include="main.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="Source\Monobehaviour.cpp" />
     <ClCompile Include="Source\Object.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\TextureManager.cpp" />

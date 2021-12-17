@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-#include "Monobehaviour.h"
 #include "Component.h"
 
 class Object;
@@ -12,17 +11,17 @@ using namespace std;
 
 class CCollision : public Component
 {
+
 public:
-	CCollision() {}
 
 	virtual void Start();
 	virtual void Update();
+	virtual bool Enable(Object* object);
 
-	bool CheckCollision(Object* ob1, Object* ob2);
-
+	void setColliderScale(float horizontal, float vertical);
+	
 private:
-	list<Object*> ob_collision_list;
-
+	Object* src_ob;
 };
 
 #endif

@@ -1,15 +1,18 @@
 #ifndef __OBJECT_H__
 #define __OBJECT_H__ 
 
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <list>
+
 #include "Monobehaviour.h"
 #include "Component.h"
+#include "CollisionManager.h"
 #include "CCollision.h"
 #include "CTransform.h"
 #include "CMoveable.h"
 
-#include <string>
-#include <algorithm>
-#include <list>
 using namespace std;
 
 
@@ -21,20 +24,22 @@ public:
 
 	Object();
 
-	void InitObject();
 	void AddChild(Object*);
 	void RemoveChild(Object*);
 	void AddComponent(Component*);
 
 public:
-	float x_pos, y_pos, z_pos;
-	float x_scale, y_scale, z_scale;
+	float x_pos, y_pos;
+	float col_width, col_height;
 	
 	bool collider;
 
 	list<Object*> childs;
 
 	CTransform* transform;
+
+	CollisionManager* collisionManager;
+
 private:
 	string ob_name;
 
