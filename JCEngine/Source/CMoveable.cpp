@@ -1,9 +1,14 @@
+#include <iostream>
+
 #include "CMoveable.h"
 #include "Object.h"
+#include "CollisionManager.h"
+
+using namespace std;
 
 void CMoveable::Start()
 {
-	move_val = 1;
+	move_val = 20;
 }
 void CMoveable::Update()
 {
@@ -28,8 +33,8 @@ void CMoveable::inputMove()
 			switch(event.key.keysym.sym)
 			{
 			case SDLK_LEFT:
-				if (src_ob->collider == true 
-					&& !src_ob->collisionManager->CheckCollision(src_ob, DIR_LEFT,move_val))
+				if (src_ob->collider == true
+					&& !CollisionManager::getInstance().CheckCollision(src_ob, DIR_LEFT, move_val))
 				{
 					src_ob->transform->setPosition(-move_val, 0, src_ob);
 					break;
@@ -40,10 +45,11 @@ void CMoveable::inputMove()
 					break;
 				}
 				else
+					cout << "面倒 惯积!" << endl;
 					break;
 			case SDLK_RIGHT:
 				if (src_ob->collider == true 
-					&& !src_ob->collisionManager->CheckCollision(src_ob, DIR_RIGHT, move_val))
+					&& !CollisionManager::getInstance().CheckCollision(src_ob, DIR_RIGHT, move_val))
 				{
 					src_ob->transform->setPosition(move_val, 0, src_ob);
 					break;
@@ -54,10 +60,11 @@ void CMoveable::inputMove()
 					break;
 				}
 				else
+					cout << "面倒 惯积!" << endl;
 					break;
 			case SDLK_UP:
 				if (src_ob->collider == true 
-					&& !src_ob->collisionManager->CheckCollision(src_ob, DIR_UP, move_val))
+					&& !CollisionManager::getInstance().CheckCollision(src_ob, DIR_UP, move_val))
 				{
 					src_ob->transform->setPosition(0, -move_val, src_ob);
 					break;
@@ -68,10 +75,11 @@ void CMoveable::inputMove()
 					break;
 				}
 				else
+					cout << "面倒 惯积!" << endl;
 					break;
 			case SDLK_DOWN:
 				if (src_ob->collider == true
-					&& !src_ob->collisionManager->CheckCollision(src_ob, DIR_DOWN, move_val))
+					&& !CollisionManager::getInstance().CheckCollision(src_ob, DIR_DOWN, move_val))
 				{
 					src_ob->transform->setPosition(0, move_val, src_ob);
 					break;
@@ -82,6 +90,7 @@ void CMoveable::inputMove()
 					break;
 				}
 				else
+					cout << "面倒 惯积!" << endl;
 					break;
 			default:
 				break;

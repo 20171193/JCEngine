@@ -1,4 +1,6 @@
 #include "Engine.h"
+#include "SDL_image.h"
+#include "TextureManager.h"
 
 bool Engine::Init(int width, int height)
 {
@@ -24,11 +26,14 @@ bool Engine::Init(int width, int height)
 		cout << "Could not create Renderer!" << SDL_GetError() << endl;
 		return false;
 	}
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 0);
+
+	TextureManager::getInstance().getRenderer(renderer);
+	return true;
 }
 
 void Engine::SetRender()
 {
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
 	SDL_RenderClear(renderer);
 }
 

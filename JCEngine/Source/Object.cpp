@@ -1,12 +1,51 @@
 #include "Object.h"
 
-Object::Object() : 
+Object::Object(string name) :
 	collider(false),
 	x_pos(0),
-	y_pos(0)
+	y_pos(0),
+	x_scale(50),
+	y_scale(50)
 {
-	collisionManager = new CollisionManager();
+	ob_name = name;
 	AddComponent(transform = new CTransform());
+}
+
+void Object::Start()
+{
+	if (!ob_image.empty())
+	{
+		TextureManager::getInstance().LoadImage(ob_image, ob_name);
+	}
+
+	// 추가된 컴포넌트들 Start
+	if (!components.empty())
+	{
+		for (Component* src_comp : components)
+		{
+			src_comp->Start();
+		}
+	}
+}
+void Object::Update()
+{
+	if (!ob_image.empty())
+	{
+		TextureManager::getInstance().DrawImage(ob_image, ob_name, x_pos, y_pos, x_scale, y_scale
+		);
+	}
+	// 추가된 컴포넌트들 Update
+	if (!components.empty())
+	{
+		for (Component* src_comp : components)
+		{
+			src_comp->Update();
+		}
+	}
+}
+void Object::AddImage(string img_file)
+{
+	ob_image = img_file;
 }
 
 void Object::AddChild(Object* child)
@@ -29,6 +68,7 @@ void Object::RemoveChild(Object* child)
 }
 void Object::AddComponent(Component* component)
 {
+
 	if (component->Enable(this))
 	{
 		components.push_back(component);
@@ -39,25 +79,4 @@ void Object::AddComponent(Component* component)
 	}
 }
 
-void Object::Start()
-{
-	if (!components.empty())
-	{
-		for (Component* src_comp : components)
-		{
-			src_comp->Start();
-		}
-	}
-}
-void Object::Update()
-{
-	if (!components.empty())
-	{
-		for (Component* src_comp : components)
-		{
-			src_comp->Update();
-		}
-		cout << "(" << x_pos << ", " << y_pos << ")" << endl;
-	}
-}
 

@@ -1,50 +1,47 @@
 #include "CollisionManager.h"
 #include "Object.h"
 
-bool CollisionManager::CheckCollision(Object* target, Direction dir, float val)
+CollisionManager& CollisionManager::getInstance()
 {
-	float target_left, target_right, target_top, target_bottom;
+	static CollisionManager instance;
+	return instance;
+}
 
-	if (dir == DIR_LEFT) 
-	{
-		target_left = target->x_pos - (target->col_width / 2) - val;
-	}
-	else
-	{
-		target_left = target->x_pos - (target->col_width / 2);
-	}
-	if (dir == DIR_RIGHT)
-	{
-		target_right = target->x_pos + (target->col_width / 2) + val;
-	}
-	else
-	{
-		target_right = target->x_pos + (target->col_width / 2);
-	}
-	if (dir == DIR_UP)
-	{
-		target_top = target->y_pos - (target->col_height / 2) - val;
-	}
-	else 
-	{
-		target_top = target->y_pos - (target->col_height / 2);
-	}
-	if (dir == DIR_DOWN)
-	{
-		target_bottom = target->y_pos + (target->col_height / 2) + val;
-	}
-	else
-	{
-		target_bottom = target->y_pos + (target->col_height / 2);
-	}
+bool CollisionManager::CheckCollision(Object* target, Direction dir, int val)
+{
+	int target_left = target->x_pos;
+	int target_right = target->x_pos + target->x_scale;
+	int target_top = target->y_pos;
+	int target_bottom = target->y_pos + target->y_scale;
 
+	switch (dir)
+	{
+	case DIR_LEFT:
+		target_left = target->x_pos - val;
+		break;
+	case DIR_RIGHT:
+		target_right = target->x_pos + target->x_scale + val;
+		break;
+	case DIR_UP:
+		target_top = target->y_pos - val;
+		break;
+	case DIR_DOWN:
+		target_bottom = target->y_pos + target->y_scale + val;
+		break;
+	default:
+		break;
+	}
 
 	for (Object* other : col_ob_list)
 	{
-		float other_left = other->x_pos - (other->col_width / 2);
-		float other_right = other->x_pos + (other->col_width / 2);
-		float other_top = other->y_pos - (other->col_height / 2);
-		float other_bottom = other->y_pos + (other->col_height / 2);
+		if (target == other)
+		{
+			continue;
+		}
+		float other_left = other->x_pos;
+		float other_right = other->x_pos + other->x_scale;
+		float other_top = other->y_pos;
+		float other_bottom = other->y_pos + other->y_scale;
 
 		if (target_left >= other_right)
 		{
@@ -62,7 +59,7 @@ bool CollisionManager::CheckCollision(Object* target, Direction dir, float val)
 		{
 			continue;
 		}
-		else 
+		else
 		{
 			return true;
 		}

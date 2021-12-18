@@ -30,7 +30,7 @@ bool CTransform::Enable(Object* object)
 	return true;
 }
 
-void CTransform::setPosition(float x, float y, Object* object)
+void CTransform::setPosition(int x, int y, Object* object)
 {
 	src_object = object;
 
@@ -41,6 +41,13 @@ void CTransform::setPosition(float x, float y, Object* object)
 	{
 		ptr_chd->transform->setPosition(x, y, ptr_chd);
 	}
+}
+void CTransform::setScale(int x, int y, Object* object)
+{
+	src_object = object;
+
+	src_object->x_scale = x;
+	src_object->y_scale = y;
 }
 
 void CTransform::getChildsInfo(Object* src_ob)

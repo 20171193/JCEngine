@@ -18,7 +18,6 @@ public:
 	virtual void Update();
 	virtual bool Enable(Object* object);
 
-	void setColliderScale(float horizontal, float vertical);
 	
 private:
 	Object* src_ob;

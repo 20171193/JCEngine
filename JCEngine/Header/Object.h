@@ -12,6 +12,7 @@
 #include "CCollision.h"
 #include "CTransform.h"
 #include "CMoveable.h"
+#include "TextureManager.h"
 
 using namespace std;
 
@@ -22,25 +23,26 @@ public:
 	virtual void Start();
 	virtual void Update();
 
-	Object();
+	Object(string name);
 
 	void AddChild(Object*);
 	void RemoveChild(Object*);
 	void AddComponent(Component*);
 
-public:
-	float x_pos, y_pos;
-	float col_width, col_height;
-	
+	void AddImage(string img_file);
+
+public:	
+	int x_pos, y_pos;
+	int x_scale, y_scale;
 	bool collider;
 
 	list<Object*> childs;
 
 	CTransform* transform;
+	CCollision* collison;
+private:	
 
-	CollisionManager* collisionManager;
-
-private:
+	string ob_image;
 	string ob_name;
 
 	list<Component*> components;

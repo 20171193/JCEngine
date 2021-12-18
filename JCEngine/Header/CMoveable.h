@@ -18,7 +18,7 @@ public:
 
 	void inputMove();
 
-	float move_val;
+	int move_val;
 	Object* src_ob;
 
 private:
