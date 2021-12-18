@@ -1,7 +1,7 @@
+#include <iostream>
+
 #include "CTransform.h"
 #include "Object.h"
-
-#include <iostream>
 
 using namespace std;
 
@@ -26,7 +26,6 @@ void CTransform::Update()
 }
 bool CTransform::Enable(Object* object)
 {
-	cout << "위치 활성화" << endl;
 	return true;
 }
 

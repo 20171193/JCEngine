@@ -1,4 +1,7 @@
 #include "Object.h"
+#include "Frame.h"
+
+using namespace std;
 
 Object::Object(string name) :
 	collider(false),
@@ -15,7 +18,7 @@ void Object::Start()
 {
 	if (!ob_image.empty())
 	{
-		TextureManager::getInstance().LoadImage(ob_image, ob_name);
+		TextureManager::getInstance().Loadimage(ob_image, ob_name);
 	}
 
 	// 추가된 컴포넌트들 Start
@@ -31,11 +34,12 @@ void Object::Update()
 {
 	if (!ob_image.empty())
 	{
-		TextureManager::getInstance().DrawImage(ob_image, ob_name, x_pos, y_pos, x_scale, y_scale
+		TextureManager::getInstance().Drawimage(ob_image, ob_name, x_pos, y_pos, x_scale, y_scale
 		);
 	}
+	
 	// 추가된 컴포넌트들 Update
-	if (!components.empty())
+	if (Frame::getInstance().Update() && !components.empty())
 	{
 		for (Component* src_comp : components)
 		{
@@ -43,6 +47,7 @@ void Object::Update()
 		}
 	}
 }
+
 void Object::AddImage(string img_file)
 {
 	ob_image = img_file;
@@ -54,17 +59,6 @@ void Object::AddChild(Object* child)
 	
 	//Transform 컴포넌트에 추가된 자식의 정보를 업데이트
 	transform->getChildsInfo(child);
-}
-void Object::RemoveChild(Object* child)
-{
-	list<Object*>::iterator src_child;
-	// find 값이 없을 경우 맨 마지막을 가리킨다.
-	src_child = find(childs.begin(), childs.end(), child);
-
-	if (src_child != childs.end())
-	{
-		
-	}
 }
 void Object::AddComponent(Component* component)
 {

@@ -7,8 +7,6 @@
 
 class Object;
 
-using namespace std;
-
 class CTransform : public Component
 {
 public:
@@ -27,7 +25,7 @@ public:
 
 private:
 	Object* src_object;
-	list<Object*> ob_child_list;
+	std::list<Object*> ob_child_list;
 };
 
 #endif

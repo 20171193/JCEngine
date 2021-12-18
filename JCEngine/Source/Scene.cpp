@@ -1,7 +1,11 @@
 #include "Scene.h"
+#include "Frame.h"
 
-Scene::Scene()
+using namespace std;
+
+Scene::Scene(string name)
 {
+	scene_name = name;
 }
 
 void Scene::AddObject(Object* object)

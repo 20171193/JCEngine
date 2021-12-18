@@ -7,8 +7,6 @@
 
 class Object;
 
-using namespace std;
-
 class CCollision : public Component
 {
 

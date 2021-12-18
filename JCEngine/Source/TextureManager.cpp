@@ -1,12 +1,14 @@
 #include "TextureManager.h"
 
+using namespace std;
+
 TextureManager& TextureManager::getInstance()
 {
 	static TextureManager instance;
 	return instance;
 }
 
-bool TextureManager::LoadImage(
+bool TextureManager::Loadimage(
 	const string file,
 	const string id
 	)
@@ -34,7 +36,7 @@ bool TextureManager::LoadImage(
 }
 
 
-void TextureManager::DrawImage(
+void TextureManager::Drawimage(
 	const string file,
 	const string id,
 	int x_pos,

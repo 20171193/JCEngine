@@ -2,6 +2,8 @@
 #include "SDL_image.h"
 #include "TextureManager.h"
 
+using namespace std;
+
 bool Engine::Init(int width, int height)
 {
 	// SDL √ ±‚»≠
@@ -32,7 +34,7 @@ bool Engine::Init(int width, int height)
 	return true;
 }
 
-void Engine::SetRender()
+void Engine::Set()
 {
 	SDL_RenderClear(renderer);
 }

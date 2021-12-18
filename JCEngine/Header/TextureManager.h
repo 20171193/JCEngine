@@ -8,8 +8,6 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
-using namespace std;
-
 class TextureManager
 {
 // singleton 
@@ -23,14 +21,14 @@ public:
 // singleton end
 
 public:
-	bool LoadImage(
-		const string file,
-		const string id
+	bool Loadimage(
+		const std::string file,
+		const std::string id
 		);
 
-	void DrawImage(
-		const string img_file,
-		const string id,
+	void Drawimage(
+		const std::string img_file,
+		const std::string id,
 		int x_pos,
 		int y_pos,
 		int x_scale,
@@ -44,7 +42,7 @@ public:
 private:
 	SDL_Renderer* src_renderer;
 
-	map<string, SDL_Texture*> textureMap;
+	std::map<std::string, SDL_Texture*> textureMap;
 };
 
 #endif

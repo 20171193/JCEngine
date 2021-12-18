@@ -14,38 +14,34 @@
 #include "CMoveable.h"
 #include "TextureManager.h"
 
-using namespace std;
-
-
 class Object : public Monobehaviour
 {
 public:
 	virtual void Start();
 	virtual void Update();
 
-	Object(string name);
+	Object(std::string name);
+	~Object() {};
 
 	void AddChild(Object*);
-	void RemoveChild(Object*);
 	void AddComponent(Component*);
 
-	void AddImage(string img_file);
+	void AddImage(std::string img_file);
 
 public:	
 	int x_pos, y_pos;
 	int x_scale, y_scale;
 	bool collider;
 
-	list<Object*> childs;
+	std::list<Object*> childs;
 
 	CTransform* transform;
-	CCollision* collison;
 private:	
 
-	string ob_image;
-	string ob_name;
+	std::string ob_image;
+	std::string ob_name;
 
-	list<Component*> components;
+	std::list<Component*> components;
 };
 
 #endif

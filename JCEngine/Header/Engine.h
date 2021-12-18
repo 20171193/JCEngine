@@ -5,14 +5,12 @@
 
 #include "SDL.h"
 
-using namespace std;
-
 class Engine 
 {
 public:
 	bool Init(int width, int height);
 
-	void SetRender();
+	void Set();
 
 	void Render();
 
@@ -21,6 +19,7 @@ public:
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
+	SDL_Event event;
 };
 
 #endif

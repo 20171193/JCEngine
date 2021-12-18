@@ -7,21 +7,19 @@
 #include "Monobehaviour.h"
 #include "Object.h"
 
-using namespace std;
-
 class Scene : public Monobehaviour
 {
 public:
-	Scene();
+	Scene(std::string name);
 	
 	virtual void Start();
 	virtual void Update();
 
 	void AddObject(Object*);
 private:
-	list<Object*> objects;
+	std::list<Object*> objects;
 	
-	string scene_name;
+	std::string scene_name;
 };
 
 #endif
