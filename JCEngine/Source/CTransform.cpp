@@ -12,7 +12,8 @@ CTransform::CTransform() :
 CTransform::CTransform(Object* object) :
 	src_object(NULL), ob_child_list(NULL)
 {
-	// 모든 오브젝트는 기본적으로 Transform(크기와 위치)를 가짐.
+	// 모든 오브젝트는 기본적으로 Transform을 가진다.
+	// -> 오브젝트의 생성자에서 Transfrom을 생성
 	src_object = object;
 }
 
@@ -32,6 +33,9 @@ bool CTransform::Enable(Object* object)
 
 void CTransform::setPosition(int x, int y, Object* object)
 {
+	// 오브젝트의 위치값을 변경하는 함수
+	// 받아온 x, y는 해당 오브젝트의 지역좌표 이동값.
+
 	src_object = object;
 
 	src_object->x_pos += x;

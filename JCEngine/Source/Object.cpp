@@ -58,14 +58,17 @@ void Object::AddImage(string img_file)
 
 void Object::AddChild(Object* child)
 {
+	// 자식 "오브젝트" 추가
 	childs.push_back(child);
 	
-	//Transform 컴포넌트에 추가된 자식의 정보를 업데이트
+	// Transform 컴포넌트에 추가된 자식의 정보를 업데이트
 	transform->getChildsInfo(child);
 }
 void Object::AddComponent(Component* component)
 {
+	// 컴포넌트 추가
 
+	// 컴포넌트는 추가하는 동시에 활성화 됨.
 	if (component->Enable(this))
 	{
 		components.push_back(component);
