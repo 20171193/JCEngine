@@ -15,11 +15,11 @@
 
 using namespace std;
 
-int main(int, char **)
+int main(int, char**)
 {
 	cout << "hello" << endl;
 	GameManager* _game = new GameManager(640, 480);
-	
+
 	// set level 1
 	// -----------------------
 	Scene* level1 = new Scene("level1");

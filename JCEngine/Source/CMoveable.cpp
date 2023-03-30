@@ -19,6 +19,10 @@ bool CMoveable::Enable(Object* object)
 	src_ob = object;
 	return true;
 }
+void CMoveable::setMoveSpeed(int val)
+{
+	move_val = val;
+}
 
 // ----동작 구조----
 // 충돌 박스 on 충돌 x : 이동 

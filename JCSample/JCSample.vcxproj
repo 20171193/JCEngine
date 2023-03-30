@@ -124,7 +124,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2main.lib;SDL2_image.lib;SDL2.lib;JCEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64;C:\Users\재천\source\repos\JCEngine\x64\Debug;C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2_image-2.0.5\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\SHIMNALDO\source\repos\JCEngine\JCEngine\Header;C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64;C:\Users\재천\source\repos\JCEngine\x64\Debug;C:\Users\재천\source\repos\JCEngine\JCEngine\SDL2_image-2.0.5\lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -16,6 +16,7 @@ public:
 	virtual void Update();
 	virtual bool Enable(Object* object);
 
+	void destroyComponent();
 	
 private:
 	Object* src_ob;

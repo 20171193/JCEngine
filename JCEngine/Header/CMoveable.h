@@ -16,12 +16,14 @@ public:
 	virtual void Update();
 	virtual bool Enable(Object* object);
 
+	void setMoveSpeed(int val);
+
 	void inputMove();
 
-	int move_val;
 	Object* src_ob;
 
 private:
+	int move_val;
 	SDL_Event event;
 };
 

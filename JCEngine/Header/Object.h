@@ -21,7 +21,7 @@ public:
 	virtual void Update();
 
 	Object(std::string name);
-	~Object() {};
+	~Object() { delete transform; };
 
 	void AddChild(Object*);
 	void AddComponent(Component*);
