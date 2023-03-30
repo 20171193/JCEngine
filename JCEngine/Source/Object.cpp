@@ -10,6 +10,8 @@ Object::Object(string name) :
 	x_scale(50),
 	y_scale(50)
 {
+	// 생성된 모든 오브젝트는 Transform을 가지고 Transform은 기본 값으로 설정됨.
+
 	ob_name = name;
 	AddComponent(transform = new CTransform());
 }
@@ -34,8 +36,8 @@ void Object::Update()
 {
 	if (!ob_image.empty())
 	{
-		TextureManager::getInstance().Drawimage(ob_image, ob_name, x_pos, y_pos, x_scale, y_scale
-		);
+		// 오브젝트 이미지 렌더링
+		TextureManager::getInstance().Drawimage(ob_image, ob_name, x_pos, y_pos, x_scale, y_scale);
 	}
 	
 	// 추가된 컴포넌트들 Update
@@ -50,6 +52,7 @@ void Object::Update()
 
 void Object::AddImage(string img_file)
 {
+	// 오브젝트 이미지 추가 (string 파일명)
 	ob_image = img_file;
 }
 

@@ -13,6 +13,7 @@ bool TextureManager::Loadimage(
 	const string id
 	)
 {
+	// 이미지 로드 후 Surface 할당
 	SDL_Surface* tempSurface = IMG_Load(file.c_str());
 	//SDL_Surface* tempSurface = SDL_LoadBMP(file.c_str());
 
@@ -22,9 +23,12 @@ bool TextureManager::Loadimage(
 		return false;
 	}
 
+	// 할당된 Surface 기반 Texture 생성
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(src_renderer, tempSurface);
+
 	// surface 해제
 	SDL_FreeSurface(tempSurface);
+
 	if (texture != nullptr)
 	{
 		// 텍스쳐 등록
@@ -45,6 +49,9 @@ void TextureManager::Drawimage(
 	int y_scale
 	)
 {
+	// 오브젝트에서 함수를 호출
+	// 오브젝트가 가진 Transform 값에 맞게 이미지를 RenderCopy.
+
 	SDL_Rect src_Rect;
 	SDL_Rect dst_Rect;
 

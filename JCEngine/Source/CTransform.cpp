@@ -12,6 +12,7 @@ CTransform::CTransform() :
 CTransform::CTransform(Object* object) :
 	src_object(NULL), ob_child_list(NULL)
 {
+	// 모든 오브젝트는 기본적으로 Transform(크기와 위치)를 가짐.
 	src_object = object;
 }
 
